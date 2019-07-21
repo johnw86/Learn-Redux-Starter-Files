@@ -10,15 +10,21 @@ import PhotoGrid from './components/PhotoGrid';
 import Single from './components/Single';
 
 // import react router deps
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+
+// N.B Default export does not need braces.
+import store, { history } from './store';
 
 const router = (
-    <Router history={browserHistory}>
-        <Route path="/" component={Main}>
-            <IndexRoute component={PhotoGrid}></IndexRoute>
-            <Route path="/view/:postid" component={Single}></Route>
-        </Route>
-    </Router>
-)
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={Main}>
+                <IndexRoute component={PhotoGrid} />
+                <Route path="/view/:postid" component={Single} />
+            </Route>
+        </Router>
+    </Provider>
+);
 
 render(router, document.getElementById('root'));
