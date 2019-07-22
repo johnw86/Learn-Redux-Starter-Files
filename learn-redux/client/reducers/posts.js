@@ -9,7 +9,10 @@
 
 // updated version of the state after actioning
 
+// all reducers run when a action is dispatched, its up to you to write the code to take action or not
+
 function posts(state = [], action) {
+    console.log('The post will change');
     console.log(state, action);
     return state;
 }
