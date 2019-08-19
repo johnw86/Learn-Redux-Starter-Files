@@ -10,7 +10,6 @@
 // updated version of the state after actioning
 
 function comments(state = [], action) {
-    console.log(state, action);
     return state;
 }
 
